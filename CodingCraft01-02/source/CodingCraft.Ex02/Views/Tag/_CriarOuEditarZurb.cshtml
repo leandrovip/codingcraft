@@ -1,0 +1,9 @@
+@model CodingCraft.Ex02.Models.Tag
+
+<div class="grid-x">
+    <div class="cell small-6">
+        @Html.LabelFor(model => model.Nome, new {@class = "text-left"})
+        @Html.EditorFor(model => model.Nome)
+        @Html.ValidationMessageFor(model => model.Nome)
+    </div>
+</div>

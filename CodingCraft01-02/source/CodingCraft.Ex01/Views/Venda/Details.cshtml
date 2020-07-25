@@ -1,0 +1,98 @@
+﻿@model CodingCraft.Ex01.Models.Venda
+
+@{
+    ViewBag.Title = "Vendas";
+}
+
+<h2>Vendas - Detalhes</h2>
+
+<div>
+    <br/>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Cliente.Nome)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Cliente.Nome)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DataVenda)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DataVenda)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ValorVenda)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ValorVenda)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DataCadastro)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DataCadastro)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UsuarioCadastro)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UsuarioCadastro)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DataEdicao)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DataEdicao)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UsuarioEdicao)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UsuarioEdicao)
+        </dd>
+    </dl>
+
+    <hr/>
+
+    <table class ="table table-hover">
+        <thead>
+        <tr>
+            <th>Descrição do Produto</th>
+            <th>Quantidade</th>
+            <th>R$ Valor</th>
+            <th>R$ Total</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        @foreach (var itemVenda in Model.ItensVenda)
+        {
+            <tr>
+                <td>@itemVenda.Produto.Descricao</td>
+                <td>@itemVenda.Quantidade</td>
+                <td>@itemVenda.Valor</td>
+                <td>@itemVenda.ValorTotal</td>
+            </tr>
+        }
+        </tbody>
+    </table>
+</div>
+<p>
+    @Html.ActionLink("Editar", "Edit", new { id = Model.VendaId }) |
+    @Html.ActionLink("Voltar", "Index")
+</p>

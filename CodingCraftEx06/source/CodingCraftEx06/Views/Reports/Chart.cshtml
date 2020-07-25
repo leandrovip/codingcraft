@@ -1,0 +1,74 @@
+﻿@using Chart.Mvc.ComplexChart
+@using Chart.Mvc.Extensions
+@model IEnumerable<CodingCraftEx06.ViewModels.ChartViewModel>
+
+@{
+    ViewBag.Title = "Chart Report";
+}
+
+<h2>Chart Report</h2>
+<br/>
+
+@using (Html.BeginForm("ChartPost", "Reports"))
+{
+    <div class="form-inline">
+        <input id="firstYear" name="firstYear" type="number" class="form-control" placeholder="First Year" style="margin-right: 15px; width: 120px;"/>
+
+        <input id="secoundYear" name="secoundYear" type="number" class="form-control" placeholder="Secound Year" style="margin-right: 15px; width: 120px;"/>
+
+        <input type="submit" class="btn btn-info" value="Start" style="margin-right: 15px"/>
+
+        @Html.ActionLink("Back", "Index", "Home", null, new {@class = "btn btn-primary"})
+    </div>
+}
+
+@{
+    var barChart = new BarChart();
+    var lineChart = new LineChart();
+
+    if (Model != null)
+    {
+        barChart.ComplexData.Labels.AddRange(Model.Select(x => x.YearLabel));
+        barChart.ComplexData.Datasets.Add(new ComplexDataset
+        {
+            Data = Model.Select(x => x.FloodKillingData).ToList(),
+            Label = "Flood Killings",
+            FillColor = "rgba(82,173,223,0.8)",
+            StrokeColor = "rgba(82,173,223,1)",
+            PointColor = "rgba(82,173,223,1)",
+            PointStrokeColor = "#fff",
+            PointHighlightFill = "#fff",
+            PointHighlightStroke = "rgba(82,173,223,1)"
+        });
+
+        lineChart.ComplexData.Labels.AddRange(Model.Select(x => x.YearLabel));
+        lineChart.ComplexData.Datasets.Add(new ComplexDataset
+        {
+            Data = Model.Select(x => x.FloodKillingData).ToList(),
+            Label = "Flood Killings",
+            FillColor = "rgba(222,82,70,0.8)",
+            StrokeColor = "rgba(222,82,70,1)",
+            PointColor = "rgba(222,82,70,1)",
+            PointStrokeColor = "#fff",
+            PointHighlightFill = "#fff",
+            PointHighlightStroke = "rgba(222,82,70,1)"
+        });
+    }
+}
+
+@{
+    if (Model != null)
+    {
+        <br/>
+        <br/>
+
+        <div class="container-fluid">
+            <canvas id="chartBar" width="900" height="400"></canvas>
+            <br/>
+            <canvas id="chartLine" width="900" height="400"></canvas>
+        </div>
+    }
+}
+
+@Html.CreateChart("chartBar", barChart)
+@Html.CreateChart("chartLine", lineChart)

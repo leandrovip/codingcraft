@@ -1,0 +1,45 @@
+﻿@model VipControle.Domain.Models.Atendimento
+
+<td class="message-auto">
+    @Html.DisplayFor(modelItem => modelItem.Cliente.Fantasia)
+</td>
+<td class="message-auto">
+    @Html.DisplayFor(modelItem => modelItem.Atendente.Nome)
+</td>
+<td>
+    @Html.DisplayFor(modelItem => modelItem.TipoAtendimento.Descricao)
+</td>
+<td>
+    @Html.DisplayFor(modelItem => modelItem.Solicitante)
+</td>
+<td>
+    @Html.DisplayFor(modelItem => modelItem.Status)
+</td>
+<td>
+    @Html.DisplayFor(modelItem => modelItem.Prioridade)
+</td>
+<td>
+    @Html.DisplayFor(modelItem => modelItem.DataCadastro)
+</td>
+<td>
+    @Html.DisplayFor(modelItem => modelItem.DataPrevisao)
+</td>
+<td>
+    @Html.DisplayFor(modelItem => modelItem.DataConclusao)
+</td>
+<td>
+    @Html.DisplayFor(modelItem => modelItem.DataEdicao)
+</td>
+<td class="message-auto">
+    <a href="@Url.Action("Edit", new {id = Model.AtendimentoId})" class="btn btn-sm btn-warning">
+        <span class="glyphicon glyphicon-edit"></span>
+    </a>
+
+    <a href="@Url.Action("Details", new {id = Model.AtendimentoId})" class="btn btn-sm btn-primary">
+        <span class="glyphicon glyphicon-list"></span>
+    </a>
+
+    <a href="@Url.Action("Delete", new {id = Model.AtendimentoId})" class="btn btn-sm btn-danger">
+        <span class="glyphicon glyphicon-remove"></span>
+    </a>
+</td>

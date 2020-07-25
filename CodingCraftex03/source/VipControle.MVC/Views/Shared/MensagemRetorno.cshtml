@@ -1,0 +1,11 @@
+﻿@{
+    ViewBag.Title = "Mensagem";
+}
+
+<h1 class="text-danger">Ops! Desculpe :(</h1>
+
+<br/>
+
+<p class="text-danger">@ViewBag.Mensagem</p>
+
+<p>@Html.ActionLink("Voltar", "", "Home", new {@class= "btn btn-default"})</p>

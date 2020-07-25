@@ -1,0 +1,125 @@
+﻿@model IEnumerable<CodingCraftEx04.MVC.GED.ViewModels.ListaViewModel>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Arquivos</h2>
+<hr />
+<br />
+
+<div class="panel-group" id="accordion" role="tablist" aria-multiselecttable="true">
+
+    @foreach (var item in Model)
+    {
+        <div class="panel panel-default">
+            <div class="panel-heading" id="head @item.TipoArquivo">
+                <h4 class="panel-title">
+                    <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#@item.TipoArquivo" aria-expanded="True" aria-controls="@item.TipoArquivo">@item.TipoArquivo</a>
+                </h4>
+            </div>
+
+            <div id="@item.TipoArquivo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="head @item.TipoArquivo">
+                <div class="list-group">
+                    @foreach (var arquivo in item.Arquivos)
+                    {
+                        <div class="list-group-item">
+                            <div class="list-group">
+                                <div class="col-md-4">
+                                    @switch (item.TipoArquivo)
+                                    {
+                                        case "Musica":
+                                            <div class="list-inline">
+                                                <span class="glyphicon glyphicon-download" aria-hidden="true"></span> @Html.ActionLink("Baixar ", "Download", new { id = arquivo.ArquivoId }) |
+                                                
+                                                <audio id="@arquivo.ArquivoId" src="http://localhost:50399/api/arquivos/audio/ @arquivo.ArquivoId"></audio> 
+                                                <span class="glyphicon glyphicon-play-circle" aria-hidden="true"></span>
+                                                <a href="#" onclick="document.getElementById('@arquivo.ArquivoId').play();">Ouvir</a> |
+                                                
+                                                <span class="glyphicon glyphicon-stop"></span>
+                                                <a  href="#" onclick="document.getElementById('@arquivo.ArquivoId').pause(); document.getElementById('@arquivo.ArquivoId').currentTime =0;">Parar</a> |
+
+                                                <span class="glyphicon glyphicon-list" aria-hidden="true"></span> @Html.ActionLink("Detalhes", "Detalhe", new { id = arquivo.ArquivoId })
+                                                |
+                                                <span class="glyphicon glyphicon-remove-circle" aria-hidden="true"></span> @Html.ActionLink("Excluir", "Excluir", new { id = arquivo.ArquivoId })
+                                            </div>
+                                            break;
+                                        case "Video":
+                                            <div class="list-inline">
+                                                <span class="glyphicon glyphicon-download" aria-hidden="true"></span> @Html.ActionLink("Baixar ", "Download", new { id = arquivo.ArquivoId }) |
+
+                                                <span class="glyphicon glyphicon-play-circle" aria-hidden="true"></span>
+                                                <a href="#" class="botao" data-id="@arquivo.ArquivoId" data-toggle="modal" data-target="#videoModal">Assistir</a>
+                                                
+                                                |
+                                                <span class="glyphicon glyphicon-list" aria-hidden="true"></span> @Html.ActionLink("Detalhes", "Detalhe", new { id = arquivo.ArquivoId })
+                                                |
+                                                <span class="glyphicon glyphicon-remove-circle" aria-hidden="true"></span> @Html.ActionLink("Excluir", "Excluir", new { id = arquivo.ArquivoId })
+                                            </div>
+                                            break;
+                                        default:
+                                            <div class="list-inline">
+                                                <span class="glyphicon glyphicon-download" aria-hidden="true"></span> @Html.ActionLink("Baixar", "Download", new { id = arquivo.ArquivoId })
+                                                |
+                                                <span class="glyphicon glyphicon-list" aria-hidden="true"></span> @Html.ActionLink("Detalhes", "Detalhe", new { id = arquivo.ArquivoId })
+                                                |
+                                                <span class="glyphicon glyphicon-remove-circle" aria-hidden="true"></span> @Html.ActionLink("Excluir", "Excluir", new { id = arquivo.ArquivoId })
+                                            </div>
+                                            break;
+                                    }
+                                </div>
+
+                                <div class="col-md-5">
+                                    @arquivo.Nome
+                                </div>
+                                <div class="col-md-3">
+                                    Upload: @arquivo.DataUpload
+                                </div>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    }
+</div>
+
+<div class="modal fade" data-backdrop="static" id="videoModal" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <p>Reprodução de Video</p>
+            </div>
+            
+            <div class="modal-body">
+                <div align="center">
+                    <video id="videoStream" controls="controls"></video>
+                </div>
+            </div>
+            
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-dismiss="modal" onclick="document.getElementById('videoStream').pause();">Fechar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@section Scripts
+{
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $(document).on("click",".botao", function () {
+                var $this = $(this);
+                var id = $this.data('id');
+
+                var videoStream = document.getElementById('videoStream');
+                videoStream.src = "http://localhost:50399/api/arquivos/video/" + id;
+                videoStream.play();
+
+                $('videoModal').focus();
+            });
+        });
+
+    </script>
+}

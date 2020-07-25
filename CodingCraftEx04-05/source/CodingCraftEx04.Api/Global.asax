@@ -1,0 +1,1 @@
+﻿<%@ Application Codebehind="Global.asax.cs" Inherits="CodingCraftEx04.Api.WebApiApplication" Language="C#" %>

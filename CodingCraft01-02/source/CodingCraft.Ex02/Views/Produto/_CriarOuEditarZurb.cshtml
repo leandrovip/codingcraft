@@ -1,0 +1,49 @@
+@model CodingCraft.Ex02.Models.Produto
+
+<div class="grid-x">
+    <div class="cell small-6">
+        @Html.LabelFor(model => model.Nome, new {@class = "text-left"})
+        @Html.EditorFor(model => model.Nome)
+        @Html.ValidationMessageFor(model => model.Nome)
+    </div>
+</div>
+
+<div class="grid-x">
+    <div class="cell small-6">
+        @Html.LabelFor(model => model.Tamanho, new {@class = "text-left"})
+        @Html.EditorFor(model => model.Tamanho)
+        @Html.ValidationMessageFor(model => model.Tamanho)
+    </div>
+</div>
+
+<div class="grid-x">
+    <div class="cell small-6">
+        @Html.LabelFor(model => model.Cor, new {@class = "text-left"})
+        @Html.EditorFor(model => model.Cor)
+        @Html.ValidationMessageFor(model => model.Cor)
+    </div>
+</div>
+
+<div class="grid-x">
+    <div class="cell small-6">
+        @Html.LabelFor(model => model.Estoque, new {@class = "text-left"})
+        @Html.EditorFor(model => model.Estoque)
+        @Html.ValidationMessageFor(model => model.Estoque)
+    </div>
+</div>
+
+<div class="grid-x">
+    <div class="cell small-6">
+        @Html.LabelFor(model => model.Valor, new {@class = "text-left"})
+        @Html.EditorFor(model => model.Valor)
+        @Html.ValidationMessageFor(model => model.Valor)
+    </div>
+</div>
+
+<div class="grid-x">
+    <div class="cell small-6">
+        @Html.LabelFor(model => model.GrupoProdutoId, "GrupoProdutoId", new {@class = "text-left"})
+        @Html.DropDownList("GrupoProdutoId")
+        @Html.ValidationMessageFor(model => model.GrupoProdutoId)
+    </div>
+</div>

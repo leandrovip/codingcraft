@@ -1,0 +1,29 @@
+@model CodingCraft.Ex02.Models.Produto
+
+@{
+    ViewBag.Title = "Excluir";
+}
+
+@{
+    var sessionLayout = Session["layout"]?.ToString() ?? "bootstrap";
+
+    switch (sessionLayout)
+    {
+        case "bootstrap":
+            @Html.Partial("_Excluir")
+            break;
+        case "zurb":
+            <div class="grid-x grid-padding-x">
+                <div class="cell large-offset-20"></div>
+                <div class="cell large-100">
+                    @Html.Partial("_ExcluirZurb")
+                </div>
+            </div>
+            break;
+        case "ink":
+            <div class="ink-grid vertical-space">
+                @Html.Partial("_ExcluirInk")
+            </div>
+            break;
+    }
+}

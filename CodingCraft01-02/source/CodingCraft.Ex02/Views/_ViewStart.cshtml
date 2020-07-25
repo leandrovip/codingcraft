@@ -1,0 +1,19 @@
+﻿@{
+    var sessionLayout = Session["layout"]?.ToString() ?? "bootstrap";
+
+    switch (sessionLayout)
+    {
+        case "bootstrap":
+            Layout = "~/Views/Shared/_Layout.cshtml";
+            break;
+        case "zurb":
+            Layout = "~/Views/Shared/_LayoutZurb.cshtml";
+            break;
+        case "ink":
+            Layout = "~/Views/Shared/_LayoutInk.cshtml";
+            break;
+        default:
+            Layout = "~/Views/Shared/_Layout.cshtml";
+            break;
+    }
+}

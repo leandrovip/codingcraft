@@ -1,0 +1,138 @@
+﻿@model VipControle.Domain.Models.Atendimento
+
+@{
+    ViewBag.Title = "Atendimentos";
+}
+
+<h2>Detalhes do Atendimento</h2>
+
+<div>
+    <hr/>
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Atendente.Nome)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Atendente.Nome)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Cliente.RazaoSocial)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Cliente.RazaoSocial)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TipoAtendimento.Descricao)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TipoAtendimento.Descricao)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Solicitante)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Solicitante)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Status)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Status)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Prioridade)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Prioridade)
+        </dd>
+
+        <dt class="corVermelho">
+            @Html.DisplayNameFor(model => model.DescricaoAtendimento)
+        </dt>
+
+        <dd class="corVermelho">
+            @Html.Raw(Model.DescricaoAtendimento?.Replace("\r\n", "<br />"))
+        </dd>
+
+        <dt class="corVerde">
+            @Html.DisplayNameFor(model => model.DescricaoConclusao)
+        </dt>
+
+        <dd class="corVerde">
+            @Html.Raw(Model.DescricaoConclusao?.Replace("\r\n", "<br />"))
+        </dd>
+
+        <dt class="corAzul">
+            @Html.DisplayNameFor(model => model.Observacao)
+        </dt>
+
+        <dd class="corAzul">
+            @Html.Raw(Model.Observacao?.Replace("\r\n", "<br />"))
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DataPrevisao)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DataPrevisao)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DataConclusao)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DataConclusao)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DataEdicao)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DataEdicao)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UsuarioEdicao)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UsuarioEdicao)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DataCadastro)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DataCadastro)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UsuarioCadastro)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UsuarioCadastro)
+        </dd>
+
+    </dl>
+</div>
+
+<div class="col-lg-offset-1">
+    @Html.ActionLink("Editar", "Edit", new { id = Model.AtendimentoId }, new {@class = "btn btn-warning"})
+    @Html.ActionLink("Voltar", "Index", null, new {@class = "btn btn-default"})
+</div>

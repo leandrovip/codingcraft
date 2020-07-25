@@ -1,0 +1,30 @@
+﻿@model IEnumerable<CodingCraftEx04.MVC.GED.ViewModels.ListaDetalheViewModel>
+
+@{
+    ViewBag.Title = "title";
+}
+
+<h2>Detalhes do Registro</h2>
+<hr />
+<br />
+
+<table class="table">
+    <tr>
+        <th>@Html.DisplayNameFor(m => m.DataDownload)</th>
+        <th>@Html.DisplayNameFor(m => m.Usuario)</th>
+
+    </tr>
+    
+    <tbody>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.DataDownload</td>
+            <td>@item.Usuario</td>
+        </tr>
+    }
+    </tbody>
+</table>
+
+@Html.ActionLink("Voltar", "Index", "Arquivo", new {@class = "btn btn-primary"})
+

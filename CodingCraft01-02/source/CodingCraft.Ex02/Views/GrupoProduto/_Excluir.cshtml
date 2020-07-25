@@ -1,0 +1,39 @@
+@model CodingCraft.Ex02.Models.GrupoProduto
+
+<h2>Exclusão de Grupo</h2>
+
+<h3>Deseja realmente exlcuir o registro abaixo ?</h3>
+<br/>
+
+<div>
+    <br/>
+    <hr/>
+
+    <dl class="dl-horizontal">
+        <dt>@Html.DisplayNameFor(model => model.Nome)</dt>
+        <dd>@Html.DisplayFor(model => model.Nome)</dd>
+
+        <dt>@Html.DisplayNameFor(model => model.CategoriaProduto)</dt>
+        <dd>@Html.DisplayFor(model => model.CategoriaProduto.Nome)</dd>
+
+        <dt>@Html.DisplayNameFor(model => model.DataCadastro)</dt>
+        <dd>@Html.DisplayFor(model => model.DataCadastro)</dd>
+
+        <dt>@Html.DisplayNameFor(model => model.UsuarioCadastro)</dt>
+        <dd>@Html.DisplayFor(model => model.UsuarioCadastro)</dd>
+
+        <dt>@Html.DisplayNameFor(model => model.DataEdicao)</dt>
+        <dd>@Html.DisplayFor(model => model.DataEdicao)</dd>
+
+        <dt>@Html.DisplayNameFor(model => model.UsuarioEdicao)</dt>
+        <dd>@Html.DisplayFor(model => model.UsuarioEdicao)</dd>
+    </dl>
+
+    @using (Html.BeginForm())
+    {
+        <div class="form-action no-color">
+            <input type="submit" value="Excluir" class="btn btn-danger"/> |
+            @Html.ActionLink("Voltar", "Index")
+        </div>
+    }
+</div>

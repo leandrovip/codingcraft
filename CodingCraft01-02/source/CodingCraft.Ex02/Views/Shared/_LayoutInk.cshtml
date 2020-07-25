@@ -1,0 +1,50 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - Coding Craft</title>
+    @Styles.Render("~/Content/ink/css")
+    @Scripts.Render("~/bundles/modernizr")
+
+</head>
+<body>
+    <div class="ink-navigation">
+        <ul class="menu horizontal green">
+            <li class="heading"> @Html.ActionLink("Coding Craft", "Index", "Home")</li>
+
+            <li>
+                <a href="#">Cadastros</a>
+                <ul class="submenu">
+                    <li>@Html.ActionLink("Categorias", "Index", "CategoriaProduto")</li>
+                    <li>@Html.ActionLink("Tags", "Index", "Tag")</li>
+                    <li>@Html.ActionLink("Grupos", "Index", "GrupoProduto")</li>
+                    <li>@Html.ActionLink("Produtos", "Index", "Produto")</li>
+                    <li>@Html.ActionLink("Vincular Tags e Grupo", "Index", "GrupoProdutoTag")</li>
+                </ul>
+            </li>
+
+            <li>
+                <a href="#">Layouts</a>
+                <ul class="submenu">
+                    <li>@Html.ActionLink("Bootstrap", "MudarLayout", "Home", new { layout = "bootstrap", urlAtual = Request.Url }, null)</li>
+                    <li>@Html.ActionLink("Zurb Foundation", "MudarLayout", "Home", new { layout = "zurb", urlAtual = Request.Url }, null)</li>
+                    <li>@Html.ActionLink("Sapo Ink", "MudarLayout", "Home", new { layout = "ink", urlAtual = Request.Url }, null)</li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+
+    <div class="body-content">
+        @RenderBody()
+        <hr />
+        <footer class="ink-grid">
+            <h5 class="note">&copy; @DateTime.Now.Year - Coding Craft Capítulo 2 - Sapo Ink</h5>
+        </footer>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/ink")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

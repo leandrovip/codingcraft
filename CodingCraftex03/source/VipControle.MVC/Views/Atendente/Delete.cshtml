@@ -1,0 +1,39 @@
+﻿@model VipControle.Domain.Models.Atendente
+
+@{
+    ViewBag.Title = "Atendentes";
+}
+
+<h2>Exclusão de Atendentes</h2>
+
+<h3>Deseja realmente excluir o Atendente abaixo?</h3>
+<div>
+    <hr/>
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Nome)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nome)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Email)
+        </dd>
+    </dl>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="col-lg-offset-1">
+            <input type="submit" value="Excluir" class="btn btn-danger"/>
+            @Html.ActionLink("Voltar", "Index", null, new {@class = "btn btn-default"})
+        </div>
+    }
+</div>

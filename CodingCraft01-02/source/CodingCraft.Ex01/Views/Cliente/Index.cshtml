@@ -1,0 +1,76 @@
+﻿@model IEnumerable<CodingCraft.Ex01.Models.Cliente>
+
+@{
+    ViewBag.Title = "Cliente";
+}
+
+<h2>Cadastro de Clientes</h2>
+
+<br/>
+
+<div class="form-inline">
+    @Html.ActionLink("Incluir", "Create", null, new {@class = "btn btn-primary"})
+
+    <div class="form-group">
+        @using (Html.BeginForm("Pesquisar", "Cliente"))
+        {
+            <input type="text" name="pesquisa" id="pesquisa" class="form-control" placeholder="Informe o Cliente"/>
+            <button type="submit" class="btn btn-default">Pesquisar</button>
+        }
+    </div>
+</div>
+
+<br/>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Nome)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Email)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DataEdicao)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.UsuarioEdicao)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DataCadastro)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.UsuarioCadastro)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Nome)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Email)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DataEdicao)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.UsuarioEdicao)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DataCadastro)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.UsuarioCadastro)
+        </td>
+        <td>
+            @Html.ActionLink("Editar", "Edit", new { id=item.ClienteId }) |
+            @Html.ActionLink("Detalhes", "Details", new { id=item.ClienteId }) |
+            @Html.ActionLink("Excluir", "Delete", new { id=item.ClienteId })
+        </td>
+    </tr>
+}
+
+</table>

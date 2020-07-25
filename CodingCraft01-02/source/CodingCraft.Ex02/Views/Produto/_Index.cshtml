@@ -1,0 +1,84 @@
+@model IEnumerable<CodingCraft.Ex02.Models.Produto>
+
+<div class="form-inline">
+    @Html.ActionLink("Criar novo", "Criar", null, new {@class = "btn btn-primary"})
+</div>
+
+<br/>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Nome)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Tamanho)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Cor)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Estoque)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Valor)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.GrupoProduto)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DataCadastro)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.UsuarioCadastro)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DataEdicao)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.UsuarioEdicao)
+        </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nome)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Tamanho)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Cor)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Estoque)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Valor)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.GrupoProduto.Nome)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DataCadastro)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UsuarioCadastro)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DataEdicao)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UsuarioEdicao)
+            </td>
+
+            <td>
+                @Html.ActionLink("Editar", "Editar", new {id = item.ProdutoId}) |
+                @Html.ActionLink("Detalhes", "Detalhes", new {id = item.ProdutoId}) |
+                @Html.ActionLink("Excluir", "Excluir", new {id = item.ProdutoId})
+            </td>
+        </tr>
+    }
+</table>

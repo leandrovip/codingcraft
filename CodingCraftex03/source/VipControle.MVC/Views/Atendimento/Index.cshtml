@@ -1,0 +1,145 @@
+﻿@using VipControle.Domain.Enum
+@model IEnumerable<VipControle.Domain.Models.Atendimento>
+
+@{
+    ViewBag.Title = "Atendimentos";
+}
+
+<h2>Atendimentos</h2>
+
+<p>
+    @Html.ActionLink("Novo Atendimento", "Create", null, new { @class = "btn btn-success" })
+</p>
+
+<br />
+
+<table id="tabela_atendimento" class="table table-condensed table-hover">
+    <thead>
+        <tr>
+            <th>
+                Cliente
+            </th>
+            <th>
+                Atendente
+            </th>
+            <th>
+                Tipo Atendimento
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Solicitante)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Status)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Prioridade)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DataCadastro)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DataPrevisao)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DataConclusao)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DataEdicao)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach (var item in Model)
+        {
+            switch (item.Status)
+            {
+                case Status.Concluido:
+                    <tr class="text-success" style="font-weight: bold">
+                        @Html.Partial("_IndexItens", item)
+                    </tr>
+                    break;
+                case Status.EmAndamento:
+                    if (item.Prioridade == Prioridade.Urgente)
+                    {
+                        <tr class="text-danger" style="font-weight: bold">
+                            @Html.Partial("_IndexItens", item)
+                        </tr>
+                    }
+                    else
+                    {
+                        <tr>
+                            @Html.Partial("_IndexItens", item)
+                        </tr>
+                    }
+                    break;
+                case Status.Aberto:
+                    if (item.Prioridade == Prioridade.Urgente)
+                    {
+                        <tr class="text-danger">
+                            @Html.Partial("_IndexItens", item)
+                        </tr>
+                    }
+                    else
+                    {
+                        <tr>
+                            @Html.Partial("_IndexItens", item)
+                        </tr>
+                    }
+                    break;
+            }
+        }
+    </tbody>
+</table>
+
+@section scripts
+{
+    <link rel="stylesheet" href="//cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css" />
+    <link rel="stylesheet" href="//cdn.datatables.net/1.10.16/js/dataTables.bootstrap.min.js" />
+    <script src="//cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+    <script src="//cdn.datatables.net/1.10.16/js/dataTables.bootstrap.min.js"></script>
+    
+    <script>
+        jQuery.extend(jQuery.fn.dataTableExt.oSort, {
+            "date-br-pre": function ( a ) {
+                if (a == null || a == "") {
+                    return 0;
+                }
+                var brDatea = a.split('/');
+                return (brDatea[2] + brDatea[1] + brDatea[0]) * 1;
+            },
+
+            "date-br-asc": function ( a, b ) {
+                return ((a < b) ? -1 : ((a > b) ? 1 : 0));
+            },
+
+            "date-br-desc": function ( a, b ) {
+                return ((a < b) ? 1 : ((a > b) ? -1 : 0));
+            }
+        });
+
+        $(document).ready(function () {
+            $('#tabela_atendimento').DataTable({
+                "language": {
+                    url: "//cdn.datatables.net/plug-ins/1.10.16/i18n/Portuguese-Brasil.json"
+                },
+
+                "createRow": function (row, data, dataIndex) {
+                    if (data[5] === "Urgente") {
+                        $(row).addClass('bg-danger');
+                    }
+                },
+
+                "columnDefs": [
+                    { "type": "date-br", targets: 7 },
+                    { "type": "date-br", targets: 8 },
+                ],
+
+                "order": [[8, "desc"]]
+            });
+        });
+    </script>
+
+
+}

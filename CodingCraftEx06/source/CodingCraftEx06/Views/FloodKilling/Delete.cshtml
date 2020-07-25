@@ -1,0 +1,48 @@
+﻿@model CodingCraftEx06.Models.FloodKilling
+
+@{
+    ViewBag.Title = "FloodKillings";
+}
+
+<h2>Delete Flood Killings</h2>
+<h3>Are you sure you want to delete this?</h3>
+<br/>
+<div>
+    <hr/>
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Country.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Country.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Amount)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Amount)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Year)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Year)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-danger"/>
+            @Html.ActionLink("Back to List", "Index", null, new {@class = "btn btn-dark"})
+        </div>
+    }
+</div>

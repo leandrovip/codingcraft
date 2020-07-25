@@ -1,0 +1,22 @@
+@model CodingCraft.Ex02.Models.CategoriaProduto
+
+<h2>Criar nova Categoria</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="ink-form">
+        <br/>
+        @Html.ValidationSummary(true, "", new {@class = "ink-label red"})
+
+        @Html.Partial("_CriarOuEditarInk", Model)
+
+        <input type="submit" value="Criar" class="ink-button orange" />
+    </div>
+}
+
+<br/>
+<div>
+    @Html.ActionLink("Voltar", "Index")
+</div>

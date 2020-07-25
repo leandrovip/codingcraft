@@ -1,0 +1,106 @@
+﻿@model CodingCraft.Ex01.Models.Compra
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Compras - Detalhes</h2>
+
+<div>
+    <br/>
+    <hr/>
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Fornecedor.RazaoSocial)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Fornecedor.RazaoSocial)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DataCompra)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DataCompra)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DataPagamento)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DataPagamento)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ValorTotalCompra)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ValorTotalCompra)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DataCadastro)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DataCadastro)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UsuarioCadastro)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UsuarioCadastro)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DataEdicao)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DataEdicao)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UsuarioEdicao)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UsuarioEdicao)
+        </dd>
+    </dl>
+</div>
+
+<div>
+    <table class="table table-hover">
+        <thead>
+        <tr>
+            <td>@Html.LabelFor(model => model.ItensCompra.FirstOrDefault().Produto.Descricao)</td>
+            <td>@Html.LabelFor(model => model.ItensCompra.FirstOrDefault().Quantidade)</td>
+            <td>@Html.LabelFor(model => model.ItensCompra.FirstOrDefault().Valor)</td>
+            <td>@Html.LabelFor(model => model.ItensCompra.FirstOrDefault().ValorTotal)</td>
+        </tr>
+        </thead>
+
+        <tbody>
+            @foreach (var itemCompra in Model.ItensCompra)
+            {
+                <tr>
+                    <td>@itemCompra.Produto.Descricao</td>
+                    <td>@itemCompra.Quantidade.ToString()</td>
+                    <td>@itemCompra.Valor.ToString()</td>
+                    <td>@itemCompra.ValorTotal.ToString()</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+<p>
+    @Html.ActionLink("Editar", "Edit", new {id = Model.CompraId}) |
+    @Html.ActionLink("Voltar", "Index")
+</p>

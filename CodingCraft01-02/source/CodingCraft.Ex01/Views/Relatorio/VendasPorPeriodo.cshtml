@@ -1,0 +1,49 @@
+﻿@model List<CodingCraft.Ex01.ViewModel.VendasPorPeriodoViewModel>
+
+@{
+    ViewBag.Title = "Relatório";
+}
+
+<h2>Relatório - Vendas por Período</h2>
+
+<br />
+
+@using (Html.BeginForm())
+{
+    <div class="form-inline">
+        <div class="form-group">
+            @Html.TextBox("dataInicial", null, new { @class = "form-control", @placeholder = "Informe a Data Inicial"})
+            @Html.TextBox("dataFinal", null, new { @class = "form-control", @placeholder = "Informe a Data Final" })
+            <button type="submit" class="btn btn-default">Pesquisar</button>
+        </div>
+    </div>
+
+}
+
+<br />
+
+<table class="table table-hover">
+    <div class="col-md-10">
+        <thead>
+            <tr>
+                <th>Nome do Cliente</th>
+                <th>R$ Vendas</th>
+                <th>Quantidade Vendas</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            @if (Model != null)
+            {
+                foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.Nome</td>
+                        <td>R$ @item.Valor</td>
+                        <td>@item.QuantidadeVendas</td>
+                    </tr>
+                }
+            }
+        </tbody>
+    </div>
+</table>

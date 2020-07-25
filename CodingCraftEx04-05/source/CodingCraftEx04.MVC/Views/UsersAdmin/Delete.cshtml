@@ -1,0 +1,31 @@
+﻿@model CodingCraftEx04.Domain.Models.Usuario
+
+@{
+    ViewBag.Title = "Excluir";
+}
+
+<h2>Excluir Usuário</h2>
+<hr />
+<br/>
+
+<h3>Deseja realmente excluir este usuário?</h3>
+<div>
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.UserName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UserName)
+        </dd>
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Excluir" class="btn btn-danger" /> |
+            @Html.ActionLink("Voltar", "Index")
+        </div>
+    }
+</div>

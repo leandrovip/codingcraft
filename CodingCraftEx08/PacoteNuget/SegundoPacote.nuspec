@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>SegundoPacote</id>
+    <version>1.0.1</version>
+    <authors>Leandro Ferreira</authors>
+    <owners>Leandro Ferreira</owners>
+    <projectUrl>http://github.com/leandrovip/codingcraftex08</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Segundo pacote para exemplos</description>
+    <releaseNotes>Segunda versão do pacote 1.0.1</releaseNotes>
+    <copyright>Copyright 2019</copyright>
+    <tags>vip package padrao</tags>
+    <dependencies>
+      <dependency id="EntityFramework" version="6.2.0" />
+	  <dependency id="Newtonsoft.Json" version="12.0.1" />
+	  <dependency id="Bogus" version="25.0.4" />
+	  <dependency id="Dapper" version="1.50.7" />
+	  <dependency id="StackExchange.Redis" version="2.0.519" />
+    </dependencies>
+  </metadata>
+</package>

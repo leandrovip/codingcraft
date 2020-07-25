@@ -1,0 +1,21 @@
+@model CodingCraft.Ex02.Models.GrupoProduto
+
+<h2>Criar novo Grupo</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div>
+        <br/>
+        @Html.ValidationSummary(true, "")
+
+        @Html.Partial("_CriarOuEditarZurb", Model)
+
+        <input type="submit" value="Criar" class="button"/>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Voltar", "Index")
+</div>

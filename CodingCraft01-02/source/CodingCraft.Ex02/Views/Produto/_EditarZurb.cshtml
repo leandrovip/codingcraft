@@ -1,0 +1,23 @@
+@model CodingCraft.Ex02.Models.Produto
+
+<h2>Edição de Produto</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.ValidationSummary(true)
+    @Html.AntiForgeryToken()
+
+    <div>
+        <br/>
+        <hr/>
+
+        @Html.HiddenFor(model => model.ProdutoId)
+        @Html.Partial("_CriarOuEditarZurb", Model)
+
+        <input type="submit" value="Salvar" class="button success"/>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Voltar", "Index")
+</div>

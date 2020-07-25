@@ -1,0 +1,66 @@
+@model IEnumerable<CodingCraft.Ex02.Models.GrupoProduto>
+
+<div class="ink-form">
+    @Html.ActionLink("Criar novo", "Criar", null, new {@class = "ink-button green"})
+</div>
+
+<br/>
+
+<table class="ink-table hover">
+    <tr>
+        <th class="align-left">
+            @Html.DisplayNameFor(model => model.Nome)
+        </th>
+        <th class="align-left">
+            @Html.DisplayNameFor(model => model.CategoriaProduto)
+        </th>
+        <th class="align-left">
+            @Html.DisplayNameFor(model => model.GrupoProdutoTags)
+        </th>
+        <th class="align-left">
+            @Html.DisplayNameFor(model => model.DataCadastro)
+        </th>
+        <th class="align-left">
+            @Html.DisplayNameFor(model => model.UsuarioCadastro)
+        </th>
+        <th class="align-left">
+            @Html.DisplayNameFor(model => model.DataEdicao)
+        </th>
+        <th class="align-left">
+            @Html.DisplayNameFor(model => model.UsuarioEdicao)
+        </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nome)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CategoriaProduto.Nome)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.GrupoProdutoTags)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DataCadastro)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UsuarioCadastro)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DataEdicao)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UsuarioEdicao)
+            </td>
+
+            <td>
+                @Html.ActionLink("Editar", "Editar", new {id = item.GrupoProdutoId}) |
+                @Html.ActionLink("Detalhes", "Detalhes", new {id = item.GrupoProdutoId}) |
+                @Html.ActionLink("Excluir", "Excluir", new {id = item.GrupoProdutoId})
+            </td>
+        </tr>
+    }
+</table>

@@ -1,0 +1,46 @@
+@model IEnumerable<CodingCraft.Ex02.Models.GrupoProdutoTag>
+
+<div class="ink-form">
+    @Html.ActionLink("Criar novo", "Criar", null, new {@class = "ink-button green"})
+</div>
+
+<br/>
+
+<table class="ink-table hover">
+    <tr>
+        <th class="align-left">
+            @Html.DisplayNameFor(model => model.GrupoProduto)
+        </th>
+        <th class="align-left">
+            @Html.DisplayNameFor(model => model.Tag)
+        </th>
+        <th class="align-left">
+            @Html.DisplayNameFor(model => model.DataCadastro)
+        </th>
+        <th class="align-left">
+            @Html.DisplayNameFor(model => model.UsuarioCadastro)
+        </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.GrupoProduto.Nome)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Tag.Nome)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DataCadastro)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UsuarioCadastro)
+            </td>
+
+            <td>
+                @Html.ActionLink("Excluir", "Excluir", new {id = item.GrupoProdutoTagId})
+            </td>
+        </tr>
+    }
+</table>

@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28010.2016
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodingCraftEx08Server", "CodingCraftEx08Server\CodingCraftEx08Server.csproj", "{AF26CA6C-146C-498A-9C60-5852A83EF551}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{AF26CA6C-146C-498A-9C60-5852A83EF551}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AF26CA6C-146C-498A-9C60-5852A83EF551}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AF26CA6C-146C-498A-9C60-5852A83EF551}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AF26CA6C-146C-498A-9C60-5852A83EF551}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {E41CBE32-E462-4F44-AA27-035752519619}
+	EndGlobalSection
+EndGlobal

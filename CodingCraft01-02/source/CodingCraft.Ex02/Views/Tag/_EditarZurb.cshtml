@@ -1,0 +1,23 @@
+@model CodingCraft.Ex02.Models.Tag
+
+<h2>Edição de Tags</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.ValidationSummary(true)
+    @Html.AntiForgeryToken()
+
+    <div>
+        <br/>
+        <hr/>
+
+        @Html.HiddenFor(model => model.TagId)
+        @Html.Partial("_CriarOuEditarZurb", Model)
+
+        <input type="submit" value="Salvar" class="button success"/>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Voltar", "Index")
+</div>

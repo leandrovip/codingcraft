@@ -1,0 +1,52 @@
+﻿@model CodingCraftEx07.Mvc.Models.Cliente
+
+@{
+    ViewBag.Title = "Clientes";
+}
+
+<br/>
+<h2>Excluir Cliente</h2>
+<br/>
+<h3>Deseja realmente excluir o cliente abaixo?</h3>
+<hr/>
+<br/>
+
+<div>
+    <h4>Cliente</h4>
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Nome)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nome)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Documento)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Documento)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Telefone)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Telefone)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Excluir" class="btn btn-danger"/>
+            @Html.ActionLink("Voltar", "Index", null, new {@class = "btn btn-secondary"})
+        </div>
+    }
+</div>

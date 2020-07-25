@@ -1,0 +1,64 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Servidor NuGet Privado">
+    <meta name="author" content="Leandro Ferreira">
+    <title>@ViewBag.Title - Servidor NuGet VIP</title>
+
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+
+<body id="page-top">
+<!-- Navigation -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
+    <div class="container">
+        @Html.ActionLink("VIP NuGet Server", "Index", "Home", new {area = ""}, new {@class = "navbar-brand js-scroll-trigger"})
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    @Html.ActionLink("Home", "Index", "Home", new { @class = "nav-link js-scroll-trigger" })
+                </li>
+                <li class="nav-item">
+                    @Html.ActionLink("Listar Pacotes", "Listar", "Home", new {@class = "nav-link js-scroll-trigger"})
+                </li>
+                <li class="nav-item">
+                    @Html.ActionLink("Limpar Cache", "LimparCache", "Home", new {@class = "nav-link js-scroll-trigger"})
+                </li>
+            </ul>
+        </div>
+
+    </div>
+</nav>
+
+<header class="bg-primary text-white">
+    <div class="container text-center">
+        <h1>Bem vindos ao Servidor NuGet VIP :)</h1>
+        <p class="lead">Exercício 08 do curso Asp.Net MVC Módulo 01 - Coding Craft</p>
+        <a href="http://www.codingcraft.com.br" target="_blank" class="text-white">Saiba Mais</a>
+    </div>
+</header>
+
+<section class="container">
+    @RenderBody()
+    <hr/>
+</section>
+
+<!-- Footer -->
+<footer class="py-2 bg-dark">
+    <div class="container">
+        <p class="m-0 text-center text-white">@DateTime.Now.Year - VIP Soluções :)</p>
+    </div>
+</footer>
+
+@Scripts.Render("~/bundles/jquery")
+@Scripts.Render("~/bundles/bootstrap")
+@RenderSection("scripts", false)
+</body>
+</html>

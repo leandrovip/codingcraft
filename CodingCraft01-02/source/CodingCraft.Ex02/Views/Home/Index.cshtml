@@ -1,0 +1,23 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+@{
+    var sessionLayout = Session["layout"]?.ToString() ?? "bootstrap";
+
+    switch (sessionLayout)
+    {
+        case "bootstrap":
+            @Html.Partial("_Index")
+            break;
+        case "zurb":
+            @Html.Partial("_IndexZurb")
+            break;
+        case "ink":
+            @Html.Partial("_IndexInk")
+            break;
+    }
+}
+
+
+
+

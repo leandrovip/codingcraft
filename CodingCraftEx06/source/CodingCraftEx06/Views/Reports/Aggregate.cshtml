@@ -1,0 +1,90 @@
+﻿@model CodingCraftEx06.ViewModels.AggregateReport
+@{
+    ViewBag.Title = "Aggregate Report";
+}
+
+<h2>Aggregate Report</h2>
+<br/>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <div class="form-row">
+            <div class="form-group col-md-auto">
+                <label>Select the country</label>
+                @Html.DropDownList("CountryId", null, new {@class = "form-control"})
+            </div>
+
+            <div class="form-group col-md-auto">
+                <label>First year</label>
+                <input id="firstYear" name="firstYear" type="number" class="form-control" style="width: 100px"/>
+            </div>
+
+            <div class="form-group col-md-auto">
+                <label>Secound year</label>
+                <input id="secoundYear" name="secoundYear" type="number" class="form-control" style="width: 100px"/>
+            </div>
+
+            <div class="form-group col-md-auto">
+                <label class="text-hide">a</label>
+                <input type="submit" class="btn btn-info" style="margin-top: 30px" value="Start"/>
+            </div>
+        </div>
+    </div>
+}
+
+<hr/>
+
+@if (Model != null)
+{
+    <div class="alert-secondary">
+        <div class="col-10">
+            <h1>
+                <strong>Result Flood Deaths</strong>
+            </h1>
+
+            <p>
+                <label class="font-weight-bold">Country:</label>
+                <label>@Model.CountryName</label>
+
+                <label class="font-weight-bold" style="margin-left: 15px">First Year:</label>
+                <label>@Model.FirstYear</label>
+
+                <label class="font-weight-bold" style="margin-left: 15px">Secound Year:</label>
+                <label>@Model.SecoundYear</label>
+            </p>
+
+            <p>
+                <label class="font-weight-bold">Amount: </label>
+                <label>@Model.DeathAmount</label>
+            </p>
+
+            <p>
+                <label class="font-weight-bold">Average: </label>
+                <label>@Model.DeathAverage</label>
+            </p>
+
+            <p>
+                <label class="font-weight-bold">Standard deviation: </label>
+                <label>@Model.StandardDeviation</label>
+            </p>
+
+            <p>
+                <label class="font-weight-bold">Max: </label>
+                <label>@Model.DeathMax</label>
+            </p>
+
+            <p>
+                <label class="font-weight-bold">Min: </label>
+                <label>@Model.DeathMin</label>
+            </p>
+        </div>
+    </div>
+}
+
+<div>
+    <br/>
+    @Html.ActionLink("Back","Index", "Home", null, new {@class = "btn btn-primary"})
+</div>

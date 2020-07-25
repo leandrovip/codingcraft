@@ -1,0 +1,55 @@
+@model CodingCraft.Ex02.Models.GrupoProdutoTag
+
+<h2>Excluir Vinculação</h2>
+
+<h3>Deseja realmente exlcuir o registro abaixo ?</h3>
+
+<div>
+    <br/>
+    <hr/>
+
+    <dl>
+        <div class="grid-x grid-margin-x">
+            <div class="small-2 cell">
+                <dt>@Html.DisplayNameFor(model => model.GrupoProduto)</dt>
+            </div>
+            <div class="auto cell align-left">
+                <dd>@Html.DisplayFor(model => model.GrupoProduto.Nome)</dd>
+            </div>
+        </div>
+
+        <div class="grid-x grid-margin-x">
+            <div class="small-2 cell">
+                <dt>@Html.DisplayNameFor(model => model.Tag)</dt>
+            </div>
+            <div class="auto cell align-left">
+                <dd>@Html.DisplayFor(model => model.Tag.Nome)</dd>
+            </div>
+        </div>
+
+        <div class="grid-x grid-margin-x">
+            <div class="small-2 cell">
+                <dt>@Html.DisplayNameFor(model => model.DataCadastro)</dt>
+            </div>
+            <div class="auto cell align-left">
+                <dd>@Html.DisplayFor(model => model.DataCadastro)</dd>
+            </div>
+        </div>
+
+        <div class="grid-x grid-margin-x">
+            <div class="small-2 cell">
+                <dt>@Html.DisplayNameFor(model => model.UsuarioCadastro)</dt>
+            </div>
+            <div class="auto cell align-left">
+                <dd>@Html.DisplayFor(model => model.UsuarioCadastro)</dd>
+            </div>
+        </div>
+    </dl>
+    @using (Html.BeginForm())
+    {
+        <div>
+            <input type="submit" value="Excluir" class="button alert"/> |
+            @Html.ActionLink("Voltar", "Index")
+        </div>
+    }
+</div>

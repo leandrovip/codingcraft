@@ -1,0 +1,29 @@
+﻿@using NuGet.Server
+
+@{
+    ViewBag.Title = "Index";
+}
+@using (@Html.BeginForm("Enviar", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+
+    <h4>É possível enviar o pacote via interface :)</h4>
+    <br/>
+
+    <div class="alert-dark">
+        
+    <div class="form-inline">
+        <input type="file" name="file" class="form-control-file" />
+        <span class="p-5"></span>
+        <input type="submit" name="Enviar" class="btn btn-dark" />
+    </div>
+    </div>
+}
+
+<br/>
+<br />
+<br />
+
+<h4>Como enviar os pacotes por linha de comando?</h4>
+<div class="shadow-sm p-3 mb-5 bg-secondary text-white text-center">
+    nuget.exe push {package file} {apikey} -Source @Helpers.GetPushUrl(Request.Url, Request.ApplicationPath)
+</div>

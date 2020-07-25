@@ -1,0 +1,58 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - Coding Craft</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                @Html.ActionLink("Coding Craft", "Index", "Home", new {area = ""}, new {@class = "navbar-brand"})
+            </div>
+
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
+
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Cadastros<span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li>@Html.ActionLink("Categorias", "Index", "CategoriaProduto")</li>
+                            <li>@Html.ActionLink("Tags", "Index", "Tag")</li>
+                            <li>@Html.ActionLink("Grupos", "Index", "GrupoProduto")</li>
+                            <li>@Html.ActionLink("Produtos", "Index", "Produto")</li>
+                            <li>@Html.ActionLink("Vincular Tags e Grupos", "Index", "GrupoProdutoTag")</li>
+                        </ul>
+                    </li>
+
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Layouts<span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li>@Html.ActionLink("Bootstrap", "MudarLayout", "Home", new {layout = "bootstrap", urlAtual = Request.Url}, null)</li>
+                            <li>@Html.ActionLink("Zurb Foundation", "MudarLayout", "Home", new { layout = "zurb", urlAtual = Request.Url }, null)</li>
+                            <li>@Html.ActionLink("Sapo Ink", "MudarLayout", "Home", new { layout = "ink", urlAtual = Request.Url }, null)</li>
+                        </ul>
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year - Coding Craft Capítulo 2 - Bootstrap</p>
+        </footer>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

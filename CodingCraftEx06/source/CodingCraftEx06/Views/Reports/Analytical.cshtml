@@ -1,0 +1,76 @@
+﻿@model dynamic
+
+@{
+    ViewBag.Title = "Analytical Report";
+}
+
+<h2>Analytical Report</h2>
+<br/>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <div class="form-row">
+            <div class="form-group col-md-auto">
+                <label>Select the country</label>
+                @Html.DropDownList("CountryId", null, new {@class = "form-control"})
+            </div>
+
+            <div class="form-group col-md-auto">
+                <label>First year</label>
+                <input id="firstYear" name="firstYear" type="number" class="form-control" style="width: 100px"/>
+            </div>
+
+            <div class="form-group col-md-auto">
+                <label>Secound year</label>
+                <input id="secoundYear" name="secoundYear" type="number" class="form-control" style="width: 100px"/>
+            </div>
+
+            <div class="form-group col-md-auto">
+                <label class="text-hide">a</label>
+                <input type="submit" class="btn btn-info" style="margin-top: 30px" value="Start"/>
+            </div>
+        </div>
+    </div>
+}
+
+<table class="table table-hover table-borderless">
+    <thead>
+    <tr>
+        <td>Year</td>
+        <td>Amount Amount Flood Killings</td>
+    </tr>
+    </thead>
+
+    @if (Model != null)
+    {
+        <tbody>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Year</td>
+                <td>@item.Amount</td>
+            </tr>
+        }
+
+        </tbody>
+
+        <tfoot>
+        <tr>
+            <td>
+                <strong>Amount</strong>
+            </td>
+            <td>
+                <strong>@ViewBag.SumAmount</strong>
+            </td>
+        </tr>
+        </tfoot>
+    }
+</table>
+
+<div>
+    @Html.ActionLink("Back", "Analytical", null, new {@class = "btn btn-primary"})
+</div>

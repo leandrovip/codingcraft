@@ -1,0 +1,41 @@
+﻿@model VipControle.MVC.Core.ViewModels.IndexViewModel
+@{
+    ViewBag.Title = "Gerenciar";
+}
+
+<h2>@ViewBag.Title.</h2>
+
+<p class="text-success">@ViewBag.StatusMessage</p>
+<div>
+    <h4>Altere as configurações de sua conta.</h4>
+    <hr />
+
+    <dl class="dl-horizontal">
+        <dt>Senha:</dt>
+        <dd>
+            [
+            @if (Model.HasPassword)
+            {
+                @Html.ActionLink("Altere sua senha", "ChangePassword")
+            }
+            else
+            {
+                @Html.ActionLink("Criar", "SetPassword")
+            }
+            ]
+        </dd>
+        <dt>External Logins:</dt>
+        <dd>
+            @Model.Logins.Count [
+            @Html.ActionLink("Gerenciar", "ManageLogins") ]
+        </dd>
+
+        @if (User.IsInRole("Admin"))
+        {
+            <dt>Confirmar Emails:</dt>
+            <dd>@Html.ActionLink("Liberar", "ConfirmarEmail")</dd>
+        }
+    </dl>
+
+
+</div>

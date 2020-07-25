@@ -1,0 +1,13 @@
+﻿@if ((string) Session["logado"] == "1")
+{
+    <ul class="nav navbar-nav navbar-right">
+        <li><a href="#"> @Session["usuario"]</a></li>
+        <li>@Html.ActionLink("Sair", "Logoff", "Home")</li>
+    </ul>
+}
+else
+{
+    <ul class="nav navbar-nav navbar-right">
+        <li>@Html.ActionLink("Login", "Login", "Home")</li>
+    </ul>
+}

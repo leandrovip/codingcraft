@@ -1,0 +1,43 @@
+﻿@model CodingCraftEx06.Models.FloodKilling
+
+@{
+    ViewBag.Title = "Flood Killings";
+}
+
+<h2>Details</h2>
+<br/>
+
+<div>
+    <h4>Flood Killing</h4>
+    <hr/>
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Country.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Country.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Amount)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Amount)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Year)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Year)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new {id = Model.FloodKillingId}, new {@class = "btn btn-info"})
+    @Html.ActionLink("Back to List", "Index", null, new {@class = "btn btn-dark"})
+</p>

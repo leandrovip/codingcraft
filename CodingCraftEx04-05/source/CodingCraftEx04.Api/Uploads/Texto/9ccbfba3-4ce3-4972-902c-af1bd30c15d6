@@ -1,0 +1,32 @@
+            tipoRetorno = tipoRetorno.ToLower() == "xml" ? tipoRetorno = "application/xml" : tipoRetorno = "application/json";
+
+            using (var client = new HttpClient())
+            {
+                client.BaseAddress = new Uri("http://localhost:50399/");
+                client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("token");
+                client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue(tipoRetorno));
+
+                var response = await client.GetAsync("api/arquivos/lista");
+                if (response.IsSuccessStatusCode)
+                {
+                    var content = await response.Content.ReadAsStringAsync();
+                    var result = JsonConvert.DeserializeObject<List<ListaViewModel>>(content);
+                    return View(result);
+                }
+            }
+
+
+
+
+    public class ListaViewModel
+    {
+        public string TipoArquivo { get; set; }
+        public List<ArquivoViewModel> Arquivos { get; set; }
+    }
+
+    public class ArquivoViewModel
+    {
+        public Guid ArquivoId { get; set; }
+        public string Nome { get; set; }
+        public DateTime DataUpload { get; set; }
+    }

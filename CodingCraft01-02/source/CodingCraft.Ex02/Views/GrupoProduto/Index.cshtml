@@ -1,0 +1,35 @@
+@model IEnumerable<CodingCraft.Ex02.Models.GrupoProduto>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+@{
+    var sessionLayout = Session["layout"]?.ToString() ?? "bootstrap";
+
+    switch (sessionLayout)
+    {
+        case "bootstrap":
+            <h2>Cadastro de Grupos</h2>
+            <br/>
+            @Html.Partial("_Index")
+            break;
+        case "zurb":
+            <div class="grid-x grid-padding-x">
+                <div class="cell large-offset-20"></div>
+                <div class="cell large-100">
+                    <h2>Cadastro de Grupos</h2>
+                    <br/>
+                    @Html.Partial("_IndexZurb")
+                </div>
+            </div>
+            break;
+        case "ink":
+            <div class="ink-grid vertical-space">
+                <h2>Cadastro de Grupos</h2>
+                <br/>
+                @Html.Partial("_IndexInk")
+            </div>
+            break;
+    }
+}

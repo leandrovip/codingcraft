@@ -1,0 +1,32 @@
+﻿@model CodingCraftEx04.Domain.Models.Grupo
+
+@{
+    ViewBag.Title = "Excluir";
+}
+
+<h2>Excluir Grupo</h2>
+<hr/>
+<br/>
+
+<h3>Deseja realmente excluir o registro abaixo? </h3>
+<p>Esta ação irá remover todos os usuários cadastrados neste Grupo. Os usuários continuará cadastrados.</p>
+<div>
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+    </dl>
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Excluir" class="btn btn-danger" /> |
+            @Html.ActionLink("Voltar", "Index")
+        </div>
+    }
+</div>

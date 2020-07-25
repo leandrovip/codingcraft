@@ -1,0 +1,25 @@
+﻿@{
+    ViewBag.Title = "Gerenciar";
+}
+
+<h2>Confirmação de E-mails.</h2>
+
+@using (Html.BeginForm("ConfirmarEmail", "Manage", FormMethod.Post ))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <hr />
+        <div class="form-group">
+            @Html.Label("Usuários", new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("UsuarioId", null, new { @class = "form-control" })
+            </div>
+        </div>
+    </div>
+
+    <div class="col-lg-offset-1">
+        <input type="submit" value="Confirmar" class="btn btn-success"  />
+        @Html.ActionLink("Voltar", "Index", null, new { @class = "btn btn-default" })
+    </div>
+}

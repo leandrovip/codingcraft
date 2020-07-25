@@ -1,0 +1,71 @@
+@model CodingCraft.Ex02.Models.Tag
+
+
+<h2>Detalhes do Registro</h2>
+
+<div>
+    <br/>
+    <hr/>
+
+    <dl>
+        <div class="ink-grid">
+            <div class="column-group">
+                <div class="all-10">
+                    <dt>@Html.DisplayNameFor(model => model.Nome)</dt>
+                </div>
+                <div class="all-80">
+                    <dd>@Html.DisplayFor(model => model.Nome)</dd>
+                </div>
+            </div>
+        </div>
+
+        <div class="ink-grid">
+            <div class="column-group">
+                <div class="all-10">
+                    <dt>@Html.DisplayNameFor(model => model.DataCadastro)</dt>
+                </div>
+                <div class="all-80">
+                    <dd>@Html.DisplayFor(model => model.DataCadastro)</dd>
+                </div>
+            </div>
+        </div>
+
+        <div class="ink-grid">
+            <div class="column-group">
+                <div class="all-10">
+                    <dt>@Html.DisplayNameFor(model => model.UsuarioCadastro)</dt>
+                </div>
+                <div class="all-80">
+                    <dd>@Html.DisplayFor(model => model.UsuarioCadastro)</dd>
+                </div>
+            </div>
+        </div>
+
+        <div class="ink-grid">
+            <div class="column-group">
+                <div class="all-10">
+                    <dt>@Html.DisplayNameFor(model => model.DataEdicao)</dt>
+                </div>
+                <div class="all-80">
+                    <dd>@Html.DisplayFor(model => model.DataEdicao)</dd>
+                </div>
+            </div>
+        </div>
+
+        <div class="ink-grid">
+            <div class="column-group">
+                <div class="all-10">
+                    <dt>@Html.DisplayNameFor(model => model.UsuarioEdicao)</dt>
+                </div>
+                <div class="all-80">
+                    <dd>@Html.DisplayFor(model => model.UsuarioEdicao)</dd>
+                </div>
+            </div>
+        </div>
+    </dl>
+</div>
+
+<p>
+    @Html.ActionLink("Editar", "Editar", new {id = Model.TagId}) |
+    @Html.ActionLink("Voltar", "Index")
+</p>

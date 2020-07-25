@@ -1,0 +1,26 @@
+﻿@model VipControle.Domain.Models.TipoAtendimento
+
+@{
+    ViewBag.Title = "Tipos de Atendimento";
+}
+
+<h2>Detalhes do Tipo de Atendimento</h2>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Descricao)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Descricao)
+        </dd>
+
+    </dl>
+</div>
+
+<div class="col-lg-offset-1">
+    @Html.ActionLink("Editar", "Edit", new { id = Model.TipoAtendimentoId }, new { @class = "btn btn-warning" })
+    @Html.ActionLink("Voltar", "Index", null, new { @class = "btn btn-default" })
+</div>

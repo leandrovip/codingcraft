@@ -1,0 +1,31 @@
+﻿@model VipControle.Domain.Models.TipoAtendimento
+
+@{
+    ViewBag.Title = "Tipos de Atendimento";
+}
+
+<h2>Exclusão de Tipo de Atendimento</h2>
+
+<h3>Deseja realmente excluir o registro abaixo?</h3>
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Descricao)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Descricao)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="col-lg-offset-1">
+            <input type="submit" value="Excluir" class="btn btn-danger" />
+            @Html.ActionLink("Voltar", "Index", null, new {@class = "btn btn-default"})
+        </div>
+    }
+</div>

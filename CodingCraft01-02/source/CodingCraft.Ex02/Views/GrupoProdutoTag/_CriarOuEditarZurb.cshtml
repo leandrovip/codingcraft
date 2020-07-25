@@ -1,0 +1,17 @@
+@model CodingCraft.Ex02.Models.GrupoProdutoTag
+
+<div class="grid-x">
+    <div class="cell small-6">
+        @Html.LabelFor(model => model.GrupoProdutoId, "GrupoProdutoId", new {@class = "text-left"})
+        @Html.DropDownList("GrupoProdutoId")
+        @Html.ValidationMessageFor(model => model.GrupoProdutoId)
+    </div>
+</div>
+
+<div class="grid-x">
+    <div class="cell small-6">
+        @Html.LabelFor(model => model.TagId, "TagId", new {@class = "text-left"})
+        @Html.DropDownList("TagId")
+        @Html.ValidationMessageFor(model => model.TagId)
+    </div>
+</div>

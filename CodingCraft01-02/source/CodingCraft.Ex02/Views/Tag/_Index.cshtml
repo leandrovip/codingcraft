@@ -1,0 +1,55 @@
+@model IEnumerable<CodingCraft.Ex02.Models.Tag>
+
+
+<div class="form-inline">
+    @Html.ActionLink("Criar novo", "Criar", null, new {@class = "btn btn-primary"})
+</div>
+
+<br/>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Nome)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DataCadastro)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.UsuarioCadastro)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DataEdicao)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.UsuarioEdicao)
+        </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nome)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DataCadastro)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UsuarioCadastro)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DataEdicao)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UsuarioEdicao)
+            </td>
+
+            <td>
+                @Html.ActionLink("Editar", "Editar", new {id = item.TagId}) |
+                @Html.ActionLink("Detalhes", "Detalhes", new {id = item.TagId}) |
+                @Html.ActionLink("Excluir", "Excluir", new {id = item.TagId})
+            </td>
+        </tr>
+    }
+</table>

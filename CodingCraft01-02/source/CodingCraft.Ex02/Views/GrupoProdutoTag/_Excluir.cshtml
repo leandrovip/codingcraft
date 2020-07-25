@@ -1,0 +1,32 @@
+@model CodingCraft.Ex02.Models.GrupoProdutoTag
+
+<h2>Excluir Vinculação</h2>
+
+<h3>Deseja realmente exlcuir o registro abaixo ?</h3>
+<br/>
+
+<div>
+    <br/>
+    <hr/>
+
+    <dl class="dl-horizontal">
+        <dt>@Html.DisplayNameFor(model => model.GrupoProduto)</dt>
+        <dd>@Html.DisplayFor(model => model.GrupoProduto.Nome)</dd>
+
+        <dt>@Html.DisplayNameFor(model => model.Tag)</dt>
+        <dd>@Html.DisplayFor(model => model.Tag.Nome)</dd>
+
+        <dt>@Html.DisplayNameFor(model => model.DataCadastro)</dt>
+        <dd>@Html.DisplayFor(model => model.DataCadastro)</dd>
+
+        <dt>@Html.DisplayNameFor(model => model.UsuarioCadastro)</dt>
+        <dd>@Html.DisplayFor(model => model.UsuarioCadastro)</dd>
+    </dl>
+    @using (Html.BeginForm())
+    {
+        <div class="form-action no-color">
+            <input type="submit" value="Excluir" class="btn btn-danger"/> |
+            @Html.ActionLink("Voltar", "Index")
+        </div>
+    }
+</div>

@@ -1,0 +1,35 @@
+﻿@using System.ComponentModel.DataAnnotations
+@using System.Net.Mime
+@{
+    ViewBag.Title = "Confirmação de E-mail";
+}
+<h2>@ViewBag.Title.</h2>
+
+<p class="text-info">
+    Para confirmar seu cadastro acesse o endereço de e-mail informado e <b>clique no link de confirmação</b>.
+    <br />
+    Se você não encontrar o e-mail olhe em sua caixa de spam.
+</p>
+
+<br />
+
+@if (!string.IsNullOrEmpty(ViewBag.Info))
+{
+    <p class="alert-success">@ViewBag.Info</p>
+}
+
+@using (@Html.BeginForm("SendEmailConfirmation", "Account", new { sendEmail = true, info ="E-mail reenviado com sucesso!" }, FormMethod.Post, new { @class = "form-inline" }))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-group">
+        <input type="email" name="emailUser" class="form-control" placeholder="Informe o e-mail cadastrado" style="min-width: 200px"/>
+        <input type="submit" name="enviar" value="Reenviar" class="btn btn-primary" />
+    </div>
+}
+
+<br />
+<br />
+<p class="text-danger">
+    Em função de demonstração caso não chegue o e-mail você pode clicar neste link: <a href="@ViewBag.Link">link de confirmação</a>
+</p>

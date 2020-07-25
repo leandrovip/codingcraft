@@ -1,0 +1,23 @@
+@model CodingCraft.Ex02.Models.CategoriaProduto
+
+<h2>Edição de Categorias</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.ValidationSummary(true)
+    @Html.AntiForgeryToken()
+
+    <div class="ink-form">
+        <br/>
+        <hr/>
+
+        @Html.HiddenFor(model => model.CategoriaProdutoId)
+        @Html.Partial("_CriarOuEditarInk", Model)
+        <input type="submit" value="Salvar" class="ink-button green"/>
+    </div>
+}
+
+<br/>
+<div>
+    @Html.ActionLink("Voltar", "Index")
+</div>

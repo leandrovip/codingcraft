@@ -1,0 +1,53 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - Coding Craft</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container">
+        <div class="navbar-brand">
+            <button type="button" class="navbar-toggler" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            @Html.ActionLink("Coding Craft", "Index", "Home", new {area = ""}, new {@class = "navbar-brand"})
+        </div>
+
+        <div class="collapse navbar-collapse">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">@Html.ActionLink("Home", "Index", "Home", null, new {@class = "nav-link"})</li>
+                <li class="nav-item">@Html.ActionLink("Countries", "Index", "Country", null, new {@class = "nav-link"})</li>
+                <li class="nav-item">@Html.ActionLink("FloodKillings", "Index", "FloodKilling", null, new {@class = "nav-link"})</li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Reports
+                    </a>
+                    <div class="dropdown-menu">
+                        @Html.ActionLink("Analytical", "Analytical", "Reports", null, new {@class = "dropdown-item"})
+                        @Html.ActionLink("Aggregate", "Aggregate", "Reports", null, new {@class = "dropdown-item"})
+                        @Html.ActionLink("Chart", "Chart", "Reports", null, new {@class = "dropdown-item"})
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div class="container body-content">
+    @RenderBody()
+    <hr/>
+    <footer>
+        <p>&copy; @DateTime.Now.Year - Coding Craft</p>
+    </footer>
+</div>
+
+@Scripts.Render("~/bundles/jquery")
+@Scripts.Render("~/bundles/bootstrap")
+@RenderSection("scripts", false)
+</body>
+</html>

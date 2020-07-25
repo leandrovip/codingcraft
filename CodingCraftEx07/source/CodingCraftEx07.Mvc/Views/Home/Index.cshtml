@@ -1,0 +1,21 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+@if (ViewBag.Mensagem != null)
+{
+    <script type="text/javascript">
+        swal('Ufa :)','@ViewBag.Mensagem', 'success')
+    </script>
+}
+
+<div class="jumbotron">
+    <h1>Coding Craft</h1>
+    <p class="lead">Exercise 07 (Redis) of course 'Asp.Net MVC Módulo 01' :) </p>
+    <small>by Leandro Ferreira</small>
+    <br/>
+    <br/>
+    <p>
+        <a href="https://www.codingcraft.com.br"  target="_blank" class="btn btn-primary btn-lg">Saiba mais</a>
+    </p>
+</div>

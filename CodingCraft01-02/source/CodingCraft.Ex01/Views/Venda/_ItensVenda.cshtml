@@ -1,0 +1,18 @@
+﻿@model CodingCraft.Ex01.Models.ItemVenda
+
+<tr>
+    @using (Html.BeginCollectionItem("ItensVenda"))
+    {
+        <td>
+            @Html.Label(Model.Produto.Descricao, new {@class = "control-label"})
+            @Html.HiddenFor(model => model.ItemVendaId)
+            @Html.HiddenFor(model => model.ProdutoId)
+            @Html.HiddenFor(model => model.Produto.Descricao)
+        </td>
+
+        <td>@Html.TextBoxFor(model => model.Quantidade, new {@class = "form-control", @type = "text", @readonly = "true"})</td>
+        <td>@Html.TextBoxFor(model => model.Valor, new {@class = "form-control", @type = "text", @readonly = "true"})</td>
+        <td>@Html.TextBoxFor(model => model.ValorTotal, new {@class = "form-control", @type = "text", @readonly = "true"})</td>
+        <td><a class="btn btn-danger" onclick="$(this).parent().parent().remove();">Excluir</a></td>
+    }
+</tr>

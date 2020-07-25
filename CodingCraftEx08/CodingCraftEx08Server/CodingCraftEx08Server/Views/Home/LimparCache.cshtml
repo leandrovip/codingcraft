@@ -1,0 +1,15 @@
+﻿@model HttpStatusCode
+
+@{
+    ViewBag.Title = "Limpar Cache";
+}
+
+@if (@Model == HttpStatusCode.OK)
+{
+    <h2>Cache limpo com sucesso! :)</h2>
+}
+else
+{
+<h2>Erro ao limpar cache :(</h2>
+}
+

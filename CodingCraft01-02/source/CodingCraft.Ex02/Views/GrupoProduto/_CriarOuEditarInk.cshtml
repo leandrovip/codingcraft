@@ -1,0 +1,17 @@
+@model CodingCraft.Ex02.Models.GrupoProduto
+
+<div class="control-group column-group gutters">
+    @Html.LabelFor(model => model.Nome, new {@class = "all-20 align-right"})
+    <div class="all-80">
+        @Html.EditorFor(model => model.Nome, new {htmlAttributes = new {@class = "control all-50"}})
+        @Html.ValidationMessageFor(model => model.Nome, "", new {@class = "text-danger"})
+    </div>
+</div>
+
+<div class="control-group column-group gutters">
+    @Html.LabelFor(model => model.CategoriaProdutoId, "CategoriaProdutoId", new {@class = "all-20 align-right"})
+    <div class="all-80">
+        @Html.DropDownList("CategoriaProdutoId", null, new {@class = "control all-50"})
+        @Html.ValidationMessageFor(model => model.CategoriaProdutoId, "", new {@class = "text-danger"})
+    </div>
+</div>

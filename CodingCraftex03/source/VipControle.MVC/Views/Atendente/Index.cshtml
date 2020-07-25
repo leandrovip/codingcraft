@@ -1,0 +1,48 @@
+﻿@model IEnumerable<VipControle.Domain.Models.Atendente>
+
+@{
+    ViewBag.Title = "Atendentes";
+}
+
+<h2>Atendentes</h2>
+
+<p>
+    @Html.ActionLink("Novo Atendente", "Create", null, new {@class = "btn btn-success"})
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Nome)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Email)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nome)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            <td>
+                <a href="@Url.Action("Edit", new {id = item.AtendenteId})" class="btn btn-sm btn-warning">
+                    <span class="glyphicon glyphicon-edit"></span>
+                </a>
+
+                <a href="@Url.Action("Details", new {id = item.AtendenteId})" class="btn btn-sm btn-primary">
+                    <span class="glyphicon glyphicon-list"></span>
+                </a>
+
+                <a href="@Url.Action("Delete", new {id = item.AtendenteId})" class="btn btn-sm btn-danger">
+                    <span class="glyphicon glyphicon-remove"></span>
+                </a>
+            </td>
+        </tr>
+    }
+
+</table>

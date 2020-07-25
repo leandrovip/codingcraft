@@ -1,0 +1,64 @@
+﻿@using System.IdentityModel.Claims
+@model CodingCraftEx04.Domain.Models.Usuario
+
+@{
+    ViewBag.Title = "Detalhes";
+}
+
+<h2>Detalhes do Usuário</h2>
+<hr/>
+<br/>
+
+<div>
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.UserName)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.UserName)
+        </dd>
+    </dl>
+</div>
+<h4>Lista de grupos para este usuário</h4>
+@if (ViewBag.RoleNames.Count == 0)
+{
+    <hr />
+    <p>Não foi encontrado grupos para este usuário.</p>
+}
+
+<table class="table">
+
+    @foreach (var item in ViewBag.RoleNames)
+    {
+        <tr>
+            <td>
+                @item
+            </td>
+        </tr>
+    }
+</table>
+
+<br/>
+
+<h4>Lista de permissões para este usuário</h4>
+@if (ViewBag.Permissoes.Count == 0)
+{
+    <p>Não existe permissões para este usuário</p>
+}
+
+<table class="table">
+    @foreach (var item in ViewBag.Permissoes)
+    {
+        <tr>
+            <td>@item.Type</td>
+        </tr>
+    }
+</table>
+
+<p>
+    @Html.ActionLink("Editar", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Voltar", "Index")
+</p>
+
+
+

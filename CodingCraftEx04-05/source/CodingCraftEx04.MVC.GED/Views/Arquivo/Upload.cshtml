@@ -1,0 +1,67 @@
+﻿@{
+    ViewBag.Title = "Upload";
+}
+
+<h2>Upload de arquivos</h2>
+<hr />
+<br />
+
+@using (Ajax.BeginForm("UploadArquivo", "Arquivo", new AjaxOptions() { HttpMethod = "POST" }, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="col-md-4">
+        <input type="file" class="filestyle" name="files" id="fu1" multiple 
+               data-btnClass="btn-primary" data-text="Selecione..."
+               data-badge="true"/>
+    </div>
+    <input type="submit" value="Enviar" class="btn btn-success" />
+}
+
+<br />
+<div class="progress">
+    <div class="progress-bar">0%</div>
+</div>
+
+<br />
+<br />
+
+<div id="status" class="alert-info" align="center"></div>
+
+@section scripts{
+    <script src="~/Scripts/bootstrap-filestyle.js"></script>
+    <script src="http://malsup.github.com/jquery.form.js"></script>
+    <script>
+        (function () {
+            var bar = $('.progress-bar');
+            var percent = $('.progress-bar');
+            var status = $('#status');
+
+            $('form').ajaxForm({
+                beforeSend: function () {
+                    status.empty();
+                    var percentValue = '0%';
+                    bar.width(percentValue);
+                    percent.html(percentValue);
+                },
+                uploadProgress: function (event, position, total, percentComplete) {
+                    var percentValue = percentComplete + '%';
+                    bar.width(percentValue);
+                    percent.html(percentValue);
+                },
+                success: function (d) {
+                    var percentValue = '100%';
+                    bar.width(percentValue);
+                    percent.html(percentValue);
+                    $('#fu1').val('');
+                    $(":file").filestyle('clear');
+                },
+                complete: function (xhr) {
+                    status.html(xhr.responseText);
+                    $('#fu1').val('');
+                    $(":file").filestyle('clear');
+                }
+            });
+        })();
+    </script>
+}

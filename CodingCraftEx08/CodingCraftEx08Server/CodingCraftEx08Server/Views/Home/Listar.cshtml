@@ -1,0 +1,45 @@
+﻿@using NuGet.Server
+@model IEnumerable<CodingCraftEx08Server.Models.Entry>
+
+@{
+    ViewBag.Title = "Listar Pacotes";
+}
+
+<h3 class="text-black-50">Pacotes encontrados: @Model.Count()</h3>
+<br/>
+
+<table class="table">
+    <tr>
+        <th>Título</th>
+        <th>Versão</th>
+        <th>Autor</th>
+        <th>Site do Projeto</th>
+        <th>Tags</th>
+        <th>Data publicação</th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@Html.DisplayFor(modelItem => item.Title)</td>
+            <td>@Html.DisplayFor(modelItem => item.Properties.Version)</td>
+            <td>@Html.DisplayFor(modelItem => item.Author.Name)</td>
+            <td>
+                <a href="@item.Properties.ProjectUrl" target="_new">Acessar Site</a>
+            </td>
+            <td>@Html.DisplayFor(modelItem => item.Properties.Tags)</td>
+            <td>@Html.DisplayFor(modelItem => item.Published)</td>
+            <td>
+                <a href="@Helpers.GetPushUrl(Request.Url, Request.ApplicationPath)/Packages(Id='@item.Properties.Id',Version='@item.Properties.Version')/Download">
+                    <i class="fa fa-download"></i>
+                </a>
+                
+                <a href="@Url.Action("Excluir", new {nomePacote = item.Properties.Id, versao = item.Properties.Version})">
+                    <i class="fa fa-recycle"></i>
+                </a>
+            </td>
+        </tr>
+    }
+
+</table>

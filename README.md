@@ -1,8 +1,5 @@
-# Coding Craft ASP.Net MVC Módulo 01
+# Coding Craft
 
-* Exercício 01 - EntityFramework
-* Exercício 02 - Scaffolding
+Repositório com códigos desenvolvidos durante a disciplina Coding Craft.  
 
-
-Saiba mais em:
-www.codingcraft.com.br
+Para mais informaçãoes acesse www.codingcraft.com.br
